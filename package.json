@@ -1,0 +1,24 @@
+{
+  "name": "jsdotmd",
+  "version": "0.0.1",
+  "description": "Literate JavaScript within Markdown",
+  "main": "lib/index.js",
+  "author": "Lesha Koss <regiusprod@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leshakoss/jsdotmd.git"
+  },
+  "bin": {
+    "jsdotmd": "bin/jsdotmd.js"
+  },
+  "scripts": {
+    "start": "./bin/jsdotmd.js",
+    "build": "npm start README.md lib/index.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-promise": "^2.0.2",
+    "marked": "^0.3.6"
+  }
+}

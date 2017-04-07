@@ -24,3 +24,4 @@ const sourcePath = path.join(currentPath, source)
 const destinationPath = path.join(currentPath, destination)
 
 jsdotmd.compile(sourcePath, destinationPath, {langCodes})
+  .catch((err) => console.log('Something went wrong!', err))

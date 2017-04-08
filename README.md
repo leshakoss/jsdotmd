@@ -38,7 +38,7 @@ jsdotmd [source file] [destination file]
 Install the package locally:
 
 ```sh
-npm install jsdotmd
+npm install --save jsdotmd
 # or
 yarn add jsdotmd
 ```

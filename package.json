@@ -1,6 +1,6 @@
 {
   "name": "jsdotmd",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Literate JavaScript within Markdown",
   "main": "lib/index.js",
   "author": "Lesha Koss <regiusprod@gmail.com>",

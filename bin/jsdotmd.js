@@ -5,7 +5,7 @@ const program = require('commander')
 const path = require('path')
 
 program
-  .usage('[options] <source> <destination')
+  .usage('[options] <source> <destination>')
   .option(
     '-l, --langCodes <items>',
     'List of language codes that are compiled into the destination, separated by commas. Default: js,javascript,node',

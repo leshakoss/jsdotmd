@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "./bin/jsdotmd.js",
-    "build": "npm start README.md lib/index.js"
+    "build": "./bin/jsdotmd.js README.md lib/index.js",
+    "test": "npm run build && npm run build"
   },
   "dependencies": {
     "commander": "^2.9.0",

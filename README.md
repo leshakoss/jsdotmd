@@ -13,7 +13,9 @@ See [Literate programming](https://en.wikipedia.org/wiki/Literate_programming)
 
 ## Why did you do that?
 
-I wanted to make a language, whose compiler is also its `README` and is written on itself. Just for fun.
+I wanted to make a language, whose compiler is written on itself
+and is also its [`README`](https://raw.githubusercontent.com/leshakoss/jsdotmd/master/README.md).
+Just for fun.
 
 ## How to use the CLI?
 
@@ -75,25 +77,27 @@ The code is very simple.
 
 It uses only two dependencies:
 
-- ['marked'](https://www.npmjs.com/package/marked) for parsing Markdown source file.
-  We don't need HTML output, so we use only lexer.
+- [`marked`](https://www.npmjs.com/package/marked) for parsing Markdown source file.
+  We don't need the HTML output, so we use only lexer.
 
   ```javascript
   const {lexer} = require('marked')
   ```
 
-- ['fs-promise'](https://www.npmjs.com/package/fs-promise) to work with the file system easier.
+- [`fs-promise`](https://www.npmjs.com/package/fs-promise) to work with the file system easier.
 
   ```javascript
   const fs = require('fs-promise')
   ```
 
+By default, *jsdotmd* compiles into JavaScript code only those Markdown inline code tags,
+which are marked `javascript`, `js` or `node`.
+
 ```javascript
 const defaultLangCodes = ['javascript', 'js', 'node']
 ```
 
-By default, *jsdotmd* only compiles into JavaScript code only those Markdown inline code tags,
-which are marked `javascript`, `js` or `node`. From CLI, you can specify tags like this:
+From CLI, you can specify tags like this:
 
 ```sh
 jsdotmd [source file] [destination file] -l js,javascript,node,jsx,typescript
@@ -109,7 +113,8 @@ function parse (source, options) {
   const separator = options.separator || '\n\n'
 ```
 
-*jsdotmd* joins code blocks using `options.separator` which is two line breaks by default.
+`parse` function joins code blocks using `separator`
+specified in the second argments `options` which is two line breaks by default.
 
 ```javascript
   const tokens = lexer(source)
@@ -161,10 +166,25 @@ function compile (sourcePath, destinationPath, options) {
 module.exports = {parse, compile}
 ```
 
-## How does CLI work?
+## How does the CLI work?
 
-It uses ['commander'](https://www.npmjs.com/package/commander).
-Check `bin/jsdotmd.js`. I haven't written it in *jsdotmd* for simplicity.
+It uses [`commander`](https://www.npmjs.com/package/commander).
+Check [`bin/jsdotmd.js`](https://github.com/leshakoss/jsdotmd/blob/master/bin/jsdotmd.js).
+I haven't written it in *jsdotmd* for simplicity.
+
+## I've made changes to the code. How to recompile the compiler?
+
+Run `npm run build`. It compiles [`README.md`](https://github.com/leshakoss/jsdotmd/blob/master/README.md)
+into [`lib/index.js`](https://github.com/leshakoss/jsdotmd/blob/master/lib/index.js).
+
+## How to test if the code works?
+
+Run `npm test`. It runs `npm run build` two times. If the compiler compiles itself after the recompiling,
+it probably works. If not, well, no luck.
+
+## Should I use it in the real project?
+
+Probably not.
 
 ## That's super weird.
 

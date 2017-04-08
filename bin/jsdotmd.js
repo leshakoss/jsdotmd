@@ -14,7 +14,7 @@ program
   .parse(process.argv)
 
 if (program.args.length !== 2) {
-  program.help(() => process.exit(1))
+  program.help()
 }
 
 const {langCodes, args: [source, destination]} = program
